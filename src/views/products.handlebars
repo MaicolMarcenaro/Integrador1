@@ -1,0 +1,32 @@
+<h1>Productos:</h1>
+
+<article>
+    <form action="/api/products" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Nombre" required>
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="number" name="price" placeholder="Precio" required>
+        <input type="file" name="thumbnails" placeholder="Foto" required>
+        <input type="text" name="code" placeholder="Code" required>
+        <input type="text" name="stock" placeholder="Stock" required>
+        <input type="submit" value="Guardar">
+    </form>
+</article>
+<article>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Foto</th>
+        </tr>
+        {{#each products}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.category}}</td>
+                <td>{{this.price}}</td>
+                <td><img src='{{this.thumbnails}}' alt="Lentes de sol" width="150px"></td>
+            </tr>
+        {{/each}}
+    </table>
+</article>
